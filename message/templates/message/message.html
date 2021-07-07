@@ -1,0 +1,11 @@
+{% extends "blog/base.html" %}{% block content %}
+<div class="container">
+  <div class="col-md-4">
+    <h6>Message Rooms</h6>
+    {% if message_rooms %} {% for message_room in message_rooms %}
+    {{message_room}} {% endfor %} {% else %}
+    <p>There does not any message rooms</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock content %}

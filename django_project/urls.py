@@ -34,12 +34,14 @@ urlpatterns = [
         name='password-reset-done'),
     path('password-reset/confirm/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(
         template_name='users/password_reset_confirm.html'),
-         name='password-reset-done'),
+        name='password-reset-done'),
     path('register/', users_views.register, name='register-users'),
     path('profile/', users_views.profile, name='profile'),
     path('search/', users_views.SearchView, name='search'),
+    path('message/', include('message.urls')),
     path('', include('blog.urls')),
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)
